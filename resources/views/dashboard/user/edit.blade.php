@@ -30,10 +30,10 @@
                     <div class="col-md-6">
                         <label for="image">Image</label>
                         <input type="file" name="image" class="form-control" id="image" />
-                        @if ($user->profile_photo_path)
+                        @if ($user->profile_photo_path && file_exists(storage_path('app/public/' . $user->profile_photo_path)))
                             <img src="{{ asset('storage/' . $user->profile_photo_path) }}" alt="Profile Photo" style="max-width: 200px; margin-top: 10px; display: block;" />
                         @else
-                            <p>No profile photo available</p>
+                            <img src="{{ asset('storage/default-avatar.png') }}" alt="Default Profile Photo" style="max-width: 200px; margin-top: 10px; display: block;" />
                         @endif
                     </div>
 

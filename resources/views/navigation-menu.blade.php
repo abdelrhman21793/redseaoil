@@ -133,11 +133,7 @@
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                 <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
-                                    @if(Auth::user()->profile_photo_path)
-                                        <img class="h-8 w-8 rounded-full object-cover" src="/storage/{{ Auth::user()->profile_photo_path }}" alt="{{ Auth::user()->name }}" />
-                                    @else
-                                        <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_path }}" alt="{{ Auth::user()->name }}" />
-                                    @endif
+                                    <img class="h-8 w-8 rounded-full object-cover" src="{{ getUserAvatar(Auth::user()) }}" alt="{{ Auth::user()->name }}" />
                                 </button>
                             @else
                                 <span class="inline-flex rounded-md">
@@ -209,11 +205,7 @@
             <div class="flex items-center px-4">
                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                     <div class="shrink-0 mr-3">
-                        @if(Auth::user()->profile_photo_path)
-                            <img class="h-8 w-8 rounded-full object-cover" src="/storage/{{ Auth::user()->profile_photo_path }}" alt="{{ Auth::user()->name }}" />
-                        @else
-                            <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_path }}" alt="{{ Auth::user()->name }}" />
-                        @endif
+                        <img class="h-8 w-8 rounded-full object-cover" src="{{ getUserAvatar(Auth::user()) }}" alt="{{ Auth::user()->name }}" />
                     </div>
                 @endif
 

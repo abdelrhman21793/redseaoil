@@ -37,11 +37,7 @@
                             <tr>
                                 <th scope="row">{{ $user->id }}</th>
                                 <td>
-                                    @if ($user->profile_photo_path)
-                                        <img src="{{ asset('storage/' . $user->profile_photo_path) }}" alt="Profile Photo" class="rounded-circle" style="width: 50px; height: 50px;">
-                                    @else
-                                        <img src="{{ asset('storage/Capture.PNG') }}" alt="Default Profile Photo" class="rounded-circle" style="width: 50px; height: 50px;">
-                                    @endif
+                                    <img src="{{ getUserAvatar($user) }}" alt="{{ $user->name }} Avatar" class="rounded-circle" style="width: 50px; height: 50px;">
                                 </td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>

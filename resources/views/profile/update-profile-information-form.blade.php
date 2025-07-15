@@ -28,10 +28,10 @@
 
                 <!-- Current Profile Photo -->
                 <div class="mt-2" x-show="! photoPreview">
-                    @if(Auth::user()->profile_photo_path)
-                        <img class="h-8 w-8 rounded-full object-cover" src="/storage/{{ Auth::user()->profile_photo_path }}" alt="{{ Auth::user()->name }}" />
+                    @if(Auth::user()->profile_photo_path && file_exists(storage_path('app/public/' . Auth::user()->profile_photo_path)))
+                        <img class="h-20 w-20 rounded-full object-cover" src="/storage/{{ Auth::user()->profile_photo_path }}" alt="{{ Auth::user()->name }}" />
                     @else
-                        <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_path }}" alt="{{ Auth::user()->name }}" />
+                        <img class="h-20 w-20 rounded-full object-cover" src="{{ asset('storage/default-avatar.png') }}" alt="{{ Auth::user()->name }}" />
                     @endif
                 </div>
 
